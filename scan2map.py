@@ -44,7 +44,7 @@ def folder_drawer(path):
     for node in G.nodes():
         G.nodes[node]['label'] = nodes_names['name'][node]
     
-    nx.write_graphml(G, 'foldertree_{}.graphml'.format(datetime.datetime.today().strftime("%Y-%m-%d--%H%M%S")))
+    nx.write_graphml(G, 'map_{}.graphml'.format(datetime.datetime.today().strftime("%Y-%m-%d--%H%M%S")))
 
     print('Mapping complete')
 
