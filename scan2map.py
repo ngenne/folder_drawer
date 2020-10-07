@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  1 12:06:04 2020
-
-@author: NGENNE
-"""
 
 import folderstats
 import networkx as nx
