@@ -14,6 +14,7 @@ args = parser.parse_args()
 
 def folder_drawer(path):
     path = args.Path
+    path = (r'\\?\UNC' + path[1:])
 
     if not os.path.isdir(path):
         print('The path specified does not exist')
