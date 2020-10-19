@@ -28,7 +28,7 @@ $ python folder_drawer.py "path/to/folder"
 C:> python folder_drawer.py "\\path\to\folder"
 ```
 
-It works from all CLI (Unix/Windows). On Windows, you might encounter some problems about very long path to files/folders (> 256 characters). Also, make sure to have permissions to read all contents through folders when you will use network paths, otherwise _folderstats_ will not be able to index the content.
+It works from all CLI (Unix/Windows). <del>On Windows, you might encounter some problems about very long path to files/folders (> 256 characters).</del> Also, make sure to have permissions to read all contents through folders when you will use network paths, otherwise _folderstats_ will not be able to index the content.
 
 ### To Do
 
