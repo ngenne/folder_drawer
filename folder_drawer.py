@@ -32,9 +32,9 @@ def folder_drawer(path):
     
     for each in df_sorted['path']:
         if not os.listdir(each):
-            df_sorted['empty'][df_sorted['path'] == each] = True
+            df_sorted.loc[df_sorted['path'] == each, ['empty']] = True
         else:
-            df_sorted['empty'][df_sorted['path'] == each] = False
+            df_sorted.loc[df_sorted['path'] == each, ['empty']] = False
     
     nodes_names = df_sorted['name']
     nodes_names = pd.DataFrame(nodes_names)
