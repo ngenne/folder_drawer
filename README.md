@@ -39,9 +39,3 @@ It works from all CLI (Unix/Windows). <del>On Windows, you might encounter some 
 ### To Do
 
  - Find a solution for the first edge of the network which is reversed
-
-License
-----
-
-MIT
-
