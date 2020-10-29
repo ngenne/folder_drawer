@@ -33,7 +33,17 @@ def folder_drawer(path):
     df_sorted = df[df['folder'] == True].sort_values(by='id').set_index('id')
     df_sorted = pd.DataFrame(df_sorted)
     
-    # Differentiation if folder is empty (True) or not (False)
+    # Variable 'too_old' added to display if last access time is older than 1 year (True) or not (False)
+    df_sorted['too_old'] = ''
+    df_sorted['atime'] = pd.to_datetime(df_sorted['atime'])
+    
+    for each in df_sorted['atime']:
+        if datetime.datetime.today() - each > datetime.timedelta(days=365):
+            df_sorted.loc[df_sorted['atime'] == each, ['too_old']] = True # More than 1 year
+        else:
+            df_sorted.loc[df_sorted['atime'] == each, ['too_old']] = False # Less than 1 year
+    
+    # Variable 'empty' added to display if folder is empty (True) or not (False)
     df_sorted['empty'] = ''
     
     for each in df_sorted['path']:
@@ -49,6 +59,9 @@ def folder_drawer(path):
     # empty (yEd)
     nodes_empty = df_sorted['empty']
     nodes_empty = pd.DataFrame(nodes_empty)
+    # too_old (yEd)
+    nodes_too_old = df_sorted['too_old']
+    nodes_too_old = pd.DataFrame(nodes_too_old)
     
     # NetworkX Graph creation
     G = nx.Graph(directed=True)
@@ -58,15 +71,17 @@ def folder_drawer(path):
         if row.parent:
             G.add_edge(i, row.parent)
     
-    # Recovery of the node index and reindexing of the dataframe "nodes_names" with "g_nodes"
+    # Recovery of the node index and reindexing of dataframes with "g_nodes"
     g_nodes = list(G.nodes)
     nodes_names = nodes_names.loc[g_nodes]
     nodes_empty = nodes_empty.loc[g_nodes]
+    nodes_too_old = nodes_too_old.loc[g_nodes]
     
-    # Adding "label" and "empty" properties for each node to ease properties mapping in yEd
+    # Adding 'label', 'empty' and 'too_old' properties for each node to ease properties mapping in yEd
     for node in G.nodes():
         G.nodes[node]['label'] = nodes_names['name'][node]
         G.nodes[node]['empty'] = nodes_empty['empty'][node]
+        G.nodes[node]['too_old'] = nodes_too_old['too_old'][node]
     
     # Saving the graph in XML format
     nx.write_graphml(G, 'map_{}.graphml'.format(datetime.datetime.today().strftime("%Y-%m-%d--%H%M%S")))
