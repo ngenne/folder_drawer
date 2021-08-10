@@ -1,4 +1,4 @@
-# folder_drawer
+# folderDrawer
 
 This script allows you to obtain tree views of the directories browsed by one of the functions.
 
