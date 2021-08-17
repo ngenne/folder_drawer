@@ -29,12 +29,12 @@ $ python folderDrawer.py "path/to/folder"
 C:\> python folderDrawer.py "\\path\to\folder"
 ```
 OR
-##### local path
+##### Local path
 ```sh
 C:\> python folderDrawer.py "C:\path\to\folder"
 ```
 
-It works from all CLI (Unix/Windows). <del>On Windows, you might encounter some problems about very long path to files/folders (> 256 characters).</del> Also, make sure to have permissions to read all contents through folders when you will use network paths, otherwise _folderstats_ will not be able to index the content.
+It works from all CLI (Unix/Windows). Also, make sure to have permissions to read all contents through folders when you will use network paths, otherwise _folderstats_ will not be able to index the content.
 
 ### To Do
 
