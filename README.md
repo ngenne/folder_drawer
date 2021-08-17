@@ -1,6 +1,7 @@
 # folderDrawer
 
-This script allows you to obtain tree views of the directories browsed by one of the functions.
+This script allows you to obtain tree views of the directories browsed by one of the functions, as below:
+![alt text](https://github.com/ngenne/folder_drawer/blob/main/img/example.png)
 
 
 ### Pre-requisites
