@@ -17,10 +17,6 @@ args = parser.parse_args()
 
 def folder_drawer(path):
     path = args.Path
-    if path.startswith(r'\\'):
-        path = (r'\\?\UNC' + path[1:]) # if UNC path this prefix is added
-    else:
-        pass # else it is a local path, so keep it as initial
     
     # Check if the path specified exists
     if not os.path.isdir(path):
