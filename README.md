@@ -13,7 +13,7 @@ __folderDrawer__ requires [Python](https://www.python.org/downloads/) 3.6+ to ru
 
 First, make sure the dependencies are installed :
 ```sh
-$ pip install networkx pandas folderstats
+$ pip install -r requirements.txt
 ```
 
 ### Usage
